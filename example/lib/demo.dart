@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_auth_btn_kit/social_auth_btn_kit.dart';
+import 'package:social_auth_btn_kit/social_auth_method.dart';
 
 class DemoPage extends StatelessWidget {
   const DemoPage({super.key});
@@ -10,9 +11,16 @@ class DemoPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Social Auth Btn Kit Demo'),
       ),
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Center(child: SocialAuthBtn())],
+        children: [
+          SocialAuthBtn(
+            method: SocialAuthMethod.get(type: ButtonTypes.facebook),
+            onPressed: () {
+              debugPrint("DEBUG: Google Btn Pressed");
+            },
+          ),
+        ],
       ),
     );
   }
