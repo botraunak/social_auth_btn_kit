@@ -11,16 +11,32 @@ class DemoPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Social Auth Btn Kit Demo'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SocialAuthBtn(
-            method: SocialAuthMethod.get(type: ButtonTypes.facebook),
-            onPressed: () {
-              debugPrint("DEBUG: Google Btn Pressed");
-            },
-          ),
-        ],
+      backgroundColor: Colors.white54,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: SocialAuthBtn(
+                method: SocialAuthMethod.get(type: ButtonTypes.facebook),
+                borderRadius: 25,
+                onPressed: () {
+                  debugPrint("DEBUG: Google Btn Pressed");
+                },
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: SocialAuthBtn(
+                method: SocialAuthMethod.get(type: ButtonTypes.google),
+                onPressed: () {
+                  debugPrint("DEBUG: Google Btn Pressed");
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

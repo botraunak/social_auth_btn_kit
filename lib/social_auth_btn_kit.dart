@@ -7,21 +7,25 @@ class SocialAuthBtn extends StatelessWidget {
   const SocialAuthBtn({
     required this.method,
     required this.onPressed,
+    this.width = 300,
+    this.borderRadius = 8,
     super.key,
   });
 
   final SocialAuthMethod method;
+  final double width;
+  final double borderRadius;
   final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
+      width: width,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(borderRadius),
           ),
           elevation: 0,
           backgroundColor: method.backgroundColor,
