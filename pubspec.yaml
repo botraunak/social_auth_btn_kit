@@ -16,6 +16,8 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   commitlint_cli: ^0.7.1
+  very_good_analysis: ^5.1.0
+  lint_staged: ^0.4.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -53,3 +55,6 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages
+
+lint_staged:
+  '**.dart': dart format --fix && dart analyze
