@@ -22,7 +22,7 @@ class DemoPage extends StatelessWidget {
                 method: SocialAuthMethod.get(type: ButtonTypes.facebook),
                 borderRadius: 25,
                 onPressed: () {
-                  debugPrint("DEBUG: Google Btn Pressed");
+                  debugPrint("DEBUG: Facebook Btn Pressed");
                 },
               ),
             ),
@@ -32,6 +32,15 @@ class DemoPage extends StatelessWidget {
                 method: SocialAuthMethod.get(type: ButtonTypes.google),
                 onPressed: () {
                   debugPrint("DEBUG: Google Btn Pressed");
+                },
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: SocialAuthBtn(
+                method: SocialAuthMethod.get(type: ButtonTypes.apple),
+                onPressed: () {
+                  debugPrint("DEBUG: Apple Btn Pressed");
                 },
               ),
             ),

@@ -37,6 +37,14 @@ class SocialAuthMethod {
         backgroundColor: facebookBgColorLight,
       );
     }
+    if (type == ButtonTypes.apple) {
+      const icon = 'assets/logos/apple.png';
+      return const SocialAuthMethod(
+        text: 'Sign in with Apple',
+        icon: icon,
+        textColor: Color(0xFF0E0E0E),
+      );
+    }
     throw Exception('Invalid Social Auth Method');
   }
   final String text;
