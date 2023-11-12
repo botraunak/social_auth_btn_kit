@@ -10,6 +10,7 @@ class SocialAuthBtn extends StatelessWidget {
     required this.onPressed,
     required this.icon,
     this.iconColor,
+    this.package,
     this.textColor = Colors.black,
     this.backgroundColor = Colors.white,
     this.width = 300,
@@ -61,7 +62,7 @@ class SocialAuthBtn extends StatelessWidget {
     }
     return SocialAuthBtn(
       text: 'Login in with Facebook',
-      icon: 'assets/logos/facebook_white.png',
+      icon: 'assets/logos/facebook.png',
       iconColor: iconColor,
       onPressed: onPressed,
       width: width,
@@ -69,6 +70,7 @@ class SocialAuthBtn extends StatelessWidget {
       backgroundColor: backgroundColor,
       textColor: textColor,
       borderSide: borderSide,
+      package: 'social_auth_btn_kit',
     );
   }
 
@@ -127,6 +129,7 @@ class SocialAuthBtn extends StatelessWidget {
       borderSide: borderSide,
       backgroundColor: backgroundColor,
       textColor: textColor,
+      package: 'social_auth_btn_kit',
     );
   }
 
@@ -177,11 +180,13 @@ class SocialAuthBtn extends StatelessWidget {
       key: key,
       textColor: txtColor,
       backgroundColor: bgColor,
+      package: 'social_auth_btn_kit',
     );
   }
 
   final String text;
   final String icon;
+  final String? package;
   final Color? iconColor;
   final Color backgroundColor;
   final Color textColor;
@@ -210,7 +215,7 @@ class SocialAuthBtn extends StatelessWidget {
             children: [
               Image.asset(
                 icon,
-                package: 'social_auth_btn_kit',
+                package: package,
                 width: 24,
                 color: iconColor,
               ),

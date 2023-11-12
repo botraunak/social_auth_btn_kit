@@ -14,8 +14,7 @@ class DemoPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: [
             Center(
               child: SocialAuthBtn.facebook(
@@ -105,6 +104,16 @@ class DemoPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
+            Center(
+              child: SocialAuthBtn(
+                onPressed: () {
+                  debugPrint("DEBUG: Instagram Btn Pressed");
+                },
+                icon: 'assets/instagram.png',
+                text: 'Connect Instagram',
+                borderSide: const BorderSide(),
+              ),
+            ),
           ],
         ),
       ),
