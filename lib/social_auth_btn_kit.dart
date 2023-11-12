@@ -29,13 +29,13 @@ class SocialAuthBtn extends StatelessWidget {
   /// The [theme] parameter defaults to `FacebookThemeVariants.light`.
   /// This determines the theme of the Facebook button.
   ///
+  /// The button's border, background color, text color, and icon color
+  /// are determined based on the [variant] and [theme] parameters.
+  ///
   /// The [width] parameter defaults to 300. This is the width of the button.
   ///
   /// The [borderRadius] parameter defaults to 8.
   /// This is the border radius of the button.
-  ///
-  /// The button's border, background color, text color, and icon color
-  /// are determined based on the [variant] and [theme] parameters.
   ///
   /// Returns a `SocialAuthBtn` configured for Facebook.
   factory SocialAuthBtn.facebook({
@@ -80,13 +80,13 @@ class SocialAuthBtn extends StatelessWidget {
   /// The [theme] parameter defaults to `GoogleThemeVariants.light`.
   /// This determines the theme of the Google button.
   ///
+  /// The button's border, background color, text color, and icon color
+  /// are determined based on the [theme] parameter.
+  ///
   /// The [width] parameter defaults to 300. This is the width of the button.
   ///
   /// The [borderRadius] parameter defaults to 8.
   /// This is the border radius of the button.
-  ///
-  /// The button's border, background color, text color, and icon color
-  /// are determined based on the [theme] parameter.
   ///
   /// Returns a `SocialAuthBtn` configured for Google.
   factory SocialAuthBtn.google({
@@ -130,6 +130,18 @@ class SocialAuthBtn extends StatelessWidget {
     );
   }
 
+  /// Creates a new instance of `SocialAuthBtn` for Apple.
+  ///
+  /// The [onPressed] parameter must not be null.
+  /// This is the callback that will be called when the button is pressed.
+  ///
+  /// The [theme] parameter defaults to `AppleThemeVariants.white`.
+  /// This determines the theme of the Apple button.
+  ///
+  /// The [variant] parameter defaults to `AppleTypeVariants.normal`.
+  /// This determines the type of Apple button to display.
+  ///
+  ///
   factory SocialAuthBtn.apple({
     required VoidCallback onPressed,
     AppleThemeVariants theme = AppleThemeVariants.white,
