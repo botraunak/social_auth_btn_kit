@@ -8,6 +8,7 @@ class SocialAuthBtn extends StatelessWidget {
     required this.text,
     required this.onPressed,
     required this.icon,
+    this.iconColor,
     this.textColor = Colors.black,
     this.backgroundColor = Colors.white,
     this.width = 300,
@@ -66,6 +67,7 @@ class SocialAuthBtn extends StatelessWidget {
 
   final String text;
   final String icon;
+  final Color? iconColor;
   final Color backgroundColor;
   final Color textColor;
   final double width;
@@ -93,6 +95,7 @@ class SocialAuthBtn extends StatelessWidget {
                 icon,
                 package: 'social_auth_btn_kit',
                 width: 24,
+                color: iconColor,
               ),
               const SizedBox(width: 24),
               Expanded(
