@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_auth_btn_kit/social_auth_btn_kit.dart';
+import 'package:social_auth_btn_kit/social_auth_btn_variants.dart';
 
 class DemoPage extends StatelessWidget {
   const DemoPage({super.key});
@@ -10,7 +11,7 @@ class DemoPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Social Auth Btn Kit Demo'),
       ),
-      backgroundColor: Colors.white54,
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -18,7 +19,34 @@ class DemoPage extends StatelessWidget {
           children: [
             Center(
               child: SocialAuthBtn.facebook(
-                borderRadius: 0,
+                variant: FacebookTypeVariants.outlined,
+                onPressed: () {
+                  debugPrint("DEBUG: Facebook Btn Pressed");
+                },
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: SocialAuthBtn.facebook(
+                onPressed: () {
+                  debugPrint("DEBUG: Facebook Btn Pressed");
+                },
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: SocialAuthBtn.facebook(
+                theme: FacebookThemeVariants.dark,
+                onPressed: () {
+                  debugPrint("DEBUG: Facebook Btn Pressed");
+                },
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: SocialAuthBtn.facebook(
+                variant: FacebookTypeVariants.outlined,
+                theme: FacebookThemeVariants.dark,
                 onPressed: () {
                   debugPrint("DEBUG: Facebook Btn Pressed");
                 },

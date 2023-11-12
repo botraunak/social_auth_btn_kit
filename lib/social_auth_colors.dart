@@ -10,8 +10,7 @@ const googleLblColorDark = Color(0xFFE3E3E3);
 const googleLblColorNeutral = Color(0xFF1F1F1F);
 
 // Facebook colors
-const facebookBgColorLight = Color(0xFF1877F2);
-const facebookLblColorLight = Colors.white;
+const facebookBrandColor = Color(0xFF1877F2);
 
 // Apple colors
 const appleLblColorLight = Color(0xFF0E0E0E);

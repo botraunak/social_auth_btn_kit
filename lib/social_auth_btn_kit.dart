@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_auth_btn_kit/social_auth_btn_variants.dart';
 import 'package:social_auth_btn_kit/social_auth_colors.dart';
 
 /// SocialAuthBtn
@@ -13,22 +14,61 @@ class SocialAuthBtn extends StatelessWidget {
     this.backgroundColor = Colors.white,
     this.width = 300,
     this.borderRadius = 8,
+    this.borderSide = BorderSide.none,
     super.key,
   });
 
+  /// Creates a new instance of `SocialAuthBtn` for Facebook.
+  ///
+  /// The [onPressed] parameter must not be null.
+  /// This is the callback that will be called when the button is pressed.
+  ///
+  /// The [width] parameter defaults to 300. This is the width of the button.
+  ///
+  /// The [variant] parameter defaults to `FacebookTypeVariants.normal`.
+  /// This determines the type of Facebook button to display.
+  ///
+  /// The [theme] parameter defaults to `FacebookThemeVariants.light`.
+  /// This determines the theme of the Facebook button.
+  ///
+  /// The [borderRadius] parameter defaults to 8.
+  /// This is the border radius of the button.
+  ///
+  /// The button's border, background color, text color, and icon color
+  /// are determined based on the [variant] and [theme] parameters.
+  ///
+  /// Returns a `SocialAuthBtn` configured for Facebook.
   factory SocialAuthBtn.facebook({
     required VoidCallback onPressed,
     double width = 300,
+    FacebookTypeVariants variant = FacebookTypeVariants.normal,
+    FacebookThemeVariants theme = FacebookThemeVariants.light,
     double borderRadius = 8,
   }) {
+    final isDark = theme == FacebookThemeVariants.dark;
+    var borderSide = BorderSide.none;
+    var backgroundColor = isDark ? Colors.black : facebookBrandColor;
+    var textColor = Colors.white;
+
+    Color? iconColor;
+    if (variant == FacebookTypeVariants.outlined) {
+      borderSide = BorderSide(
+        color: isDark ? Colors.black : facebookBrandColor,
+      );
+      backgroundColor = Colors.white;
+      textColor = isDark ? Colors.black : facebookBrandColor;
+      iconColor = isDark ? Colors.black : facebookBrandColor;
+    }
     return SocialAuthBtn(
       text: 'Login in with Facebook',
-      icon: 'assets/logos/facebook.png',
+      icon: 'assets/logos/facebook_white.png',
+      iconColor: iconColor,
       onPressed: onPressed,
       width: width,
       borderRadius: borderRadius,
-      backgroundColor: facebookBgColorLight,
-      textColor: facebookLblColorLight,
+      backgroundColor: backgroundColor,
+      textColor: textColor,
+      borderSide: borderSide,
     );
   }
 
@@ -72,6 +112,7 @@ class SocialAuthBtn extends StatelessWidget {
   final Color textColor;
   final double width;
   final double borderRadius;
+  final BorderSide borderSide;
   final VoidCallback onPressed;
 
   @override
@@ -83,6 +124,7 @@ class SocialAuthBtn extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
+            side: borderSide,
           ),
           elevation: 0,
           backgroundColor: backgroundColor,
