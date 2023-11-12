@@ -5,6 +5,29 @@ import 'package:social_auth_btn_kit/social_auth_colors.dart';
 /// SocialAuthBtn
 /// Base Btn which handles all social logins
 class SocialAuthBtn extends StatelessWidget {
+  /// Creates a new instance of `SocialAuthBtn`.
+  /// The [onPressed] parameter must not be null.
+  /// This is the callback that will be called when the button is pressed.
+  /// The [text] parameter must not be null.
+  /// This is the text that will be displayed on the button.
+  /// The [icon] parameter must not be null.
+  /// This is the icon that will be displayed on the button.
+  /// The [iconColor] parameter defaults to `null`.
+  /// This is the color of the icon.
+  /// The [textColor] parameter defaults to `Colors.black`.
+  /// This is the color of the text.
+  /// The [backgroundColor] parameter defaults to `Colors.white`.
+  /// This is the background color of the button.
+  /// The [width] parameter defaults to 300.
+  /// This is the width of the button.
+  /// The [borderRadius] parameter defaults to 8.
+  /// This is the border radius of the button.
+  /// The [borderSide] parameter defaults to `BorderSide.none`.
+  /// This is the border side of the button.
+  /// The [loading] parameter defaults to `false`.
+  /// This determines whether to show a loading indicator on the button.
+  /// The [loaderColor] parameter defaults to `null`.
+  /// This is the color of the loading indicator.
   const SocialAuthBtn({
     required this.text,
     required this.onPressed,
@@ -16,6 +39,8 @@ class SocialAuthBtn extends StatelessWidget {
     this.width = 300,
     this.borderRadius = 8,
     this.borderSide = BorderSide.none,
+    this.loading = false,
+    this.loaderColor,
     super.key,
   });
 
@@ -45,6 +70,8 @@ class SocialAuthBtn extends StatelessWidget {
     FacebookThemeVariants theme = FacebookThemeVariants.light,
     double width = 300,
     double borderRadius = 8,
+    bool loading = false,
+    Color? loaderColor,
   }) {
     final isDark = theme == FacebookThemeVariants.dark;
     var borderSide = BorderSide.none;
@@ -71,6 +98,8 @@ class SocialAuthBtn extends StatelessWidget {
       textColor: textColor,
       borderSide: borderSide,
       package: 'social_auth_btn_kit',
+      loading: loading,
+      loaderColor: loaderColor,
     );
   }
 
@@ -96,6 +125,8 @@ class SocialAuthBtn extends StatelessWidget {
     GoogleThemeVariants theme = GoogleThemeVariants.light,
     double width = 300,
     double borderRadius = 8,
+    bool loading = false,
+    Color? loaderColor,
   }) {
     var backgroundColor = googleBgColorLight;
     var textColor = googleLblColorLight;
@@ -130,6 +161,8 @@ class SocialAuthBtn extends StatelessWidget {
       backgroundColor: backgroundColor,
       textColor: textColor,
       package: 'social_auth_btn_kit',
+      loading: loading,
+      loaderColor: loaderColor,
     );
   }
 
@@ -151,6 +184,8 @@ class SocialAuthBtn extends StatelessWidget {
     AppleTypeVariants variant = AppleTypeVariants.normal,
     double width = 300,
     double borderRadius = 8,
+    bool loading = false,
+    Color? loaderColor,
     Key? key,
   }) {
     var borderSide = BorderSide.none;
@@ -180,6 +215,8 @@ class SocialAuthBtn extends StatelessWidget {
       key: key,
       textColor: txtColor,
       backgroundColor: bgColor,
+      loading: loading,
+      loaderColor: loaderColor,
       package: 'social_auth_btn_kit',
     );
   }
@@ -194,6 +231,8 @@ class SocialAuthBtn extends StatelessWidget {
   final double borderRadius;
   final BorderSide borderSide;
   final VoidCallback onPressed;
+  final bool loading;
+  final Color? loaderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -211,27 +250,37 @@ class SocialAuthBtn extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(12),
-          child: Row(
-            children: [
-              Image.asset(
-                icon,
-                package: package,
-                width: 24,
-                color: iconColor,
-              ),
-              const SizedBox(width: 24),
-              Expanded(
-                child: Text(
-                  text,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: textColor,
+          child: loading
+              ? Center(
+                  child: SizedBox(
+                    width: 18,
+                    height: 18,
+                    child: CircularProgressIndicator(
+                      backgroundColor: loaderColor,
+                    ),
                   ),
+                )
+              : Row(
+                  children: [
+                    Image.asset(
+                      icon,
+                      package: package,
+                      width: 24,
+                      color: iconColor,
+                    ),
+                    const SizedBox(width: 24),
+                    Expanded(
+                      child: Text(
+                        text,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: textColor,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
         ),
       ),
     );
