@@ -1,18 +1,71 @@
 import 'package:flutter/material.dart';
-import 'package:social_auth_btn_kit/social_auth_method.dart';
+import 'package:social_auth_btn_kit/social_auth_colors.dart';
 
 /// SocialAuthBtn
 /// Base Btn which handles all social logins
 class SocialAuthBtn extends StatelessWidget {
   const SocialAuthBtn({
-    required this.method,
+    required this.text,
     required this.onPressed,
+    this.textColor = Colors.black,
+    this.backgroundColor = Colors.white,
+    this.icon = 'assets/logos/google.png',
     this.width = 300,
     this.borderRadius = 8,
     super.key,
   });
 
-  final SocialAuthMethod method;
+  const SocialAuthBtn.facebook({
+    required VoidCallback onPressed,
+    double width = 300,
+    double borderRadius = 8,
+    Key? key,
+  }) : this(
+          text: 'Login in with Facebook',
+          icon: 'assets/logos/facebook.png',
+          onPressed: onPressed,
+          width: width,
+          borderRadius: borderRadius,
+          backgroundColor: facebookBgColorLight,
+          textColor: facebookLblColorLight,
+          key: key,
+        );
+
+  const SocialAuthBtn.google({
+    required VoidCallback onPressed,
+    double width = 300,
+    double borderRadius = 8,
+    Key? key,
+  }) : this(
+          text: 'Sign in with Google',
+          icon: 'assets/logos/google.png',
+          onPressed: onPressed,
+          width: width,
+          borderRadius: borderRadius,
+          backgroundColor: googleBgColorLight,
+          textColor: googleLblColorLight,
+          key: key,
+        );
+
+  const SocialAuthBtn.apple({
+    required VoidCallback onPressed,
+    double width = 300,
+    double borderRadius = 8,
+    Key? key,
+  }) : this(
+          text: 'Sign in with Apple',
+          icon: 'assets/logos/apple.png',
+          onPressed: onPressed,
+          width: width,
+          borderRadius: borderRadius,
+          key: key,
+          textColor: appleLblColorLight,
+        );
+
+  final String text;
+  final String icon;
+  final Color backgroundColor;
+  final Color textColor;
   final double width;
   final double borderRadius;
   final VoidCallback onPressed;
@@ -28,25 +81,25 @@ class SocialAuthBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(borderRadius),
           ),
           elevation: 0,
-          backgroundColor: method.backgroundColor,
+          backgroundColor: backgroundColor,
         ),
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Row(
             children: [
               Image.asset(
-                method.icon,
+                icon,
                 package: 'social_auth_btn_kit',
                 width: 24,
               ),
               const SizedBox(width: 24),
               Expanded(
                 child: Text(
-                  method.text,
+                  text,
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
-                    color: method.textColor,
+                    color: textColor,
                   ),
                 ),
               ),

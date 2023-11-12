@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:social_auth_btn_kit/social_auth_method.dart';
 
 // Google Colors
 const googleBgColorLight = Color(0xFFFFFFFF);
@@ -12,33 +11,7 @@ const googleLblColorNeutral = Color(0xFF1F1F1F);
 
 // Facebook colors
 const facebookBgColorLight = Color(0xFF1877F2);
+const facebookLblColorLight = Colors.white;
 
-class GoogleColors {
-  const GoogleColors({
-    required this.bgColor,
-    required this.lblColor,
-  });
-
-  factory GoogleColors.fromMode({required ButtonModes mode}) {
-    switch (mode) {
-      case ButtonModes.light:
-        return const GoogleColors(
-          bgColor: googleBgColorLight,
-          lblColor: googleLblColorLight,
-        );
-      case ButtonModes.dark:
-        return const GoogleColors(
-          bgColor: googleBgColorDark,
-          lblColor: googleLblColorDark,
-        );
-      case ButtonModes.neutral:
-        return const GoogleColors(
-          bgColor: googleBgColorNeutral,
-          lblColor: googleLblColorNeutral,
-        );
-    }
-  }
-
-  final Color bgColor;
-  final Color lblColor;
-}
+// Apple colors
+const appleLblColorLight = Color(0xFF0E0E0E);

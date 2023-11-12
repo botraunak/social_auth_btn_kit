@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:social_auth_btn_kit/social_auth_btn_kit.dart';
-import 'package:social_auth_btn_kit/social_auth_method.dart';
 
 class DemoPage extends StatelessWidget {
   const DemoPage({super.key});
@@ -18,9 +17,8 @@ class DemoPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: SocialAuthBtn(
-                method: SocialAuthMethod.get(type: ButtonTypes.facebook),
-                borderRadius: 25,
+              child: SocialAuthBtn.facebook(
+                borderRadius: 0,
                 onPressed: () {
                   debugPrint("DEBUG: Facebook Btn Pressed");
                 },
@@ -28,8 +26,7 @@ class DemoPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Center(
-              child: SocialAuthBtn(
-                method: SocialAuthMethod.get(type: ButtonTypes.google),
+              child: SocialAuthBtn.google(
                 onPressed: () {
                   debugPrint("DEBUG: Google Btn Pressed");
                 },
@@ -37,8 +34,7 @@ class DemoPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Center(
-              child: SocialAuthBtn(
-                method: SocialAuthMethod.get(type: ButtonTypes.apple),
+              child: SocialAuthBtn.apple(
                 onPressed: () {
                   debugPrint("DEBUG: Apple Btn Pressed");
                 },
