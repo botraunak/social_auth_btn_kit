@@ -1,6 +1,6 @@
 name: social_auth_btn_kit
 description: Quick and easy way to implement social login buttons in your app.
-version: 0.0.1
+version: 0.1.0
 repository: https://github.com/botraunak/social_auth_btn_kit
 
 environment:
