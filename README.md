@@ -2,7 +2,7 @@
 Flutter UI Components for adding social sign in buttons in your project following the brand guidlines of each social provider.
 Social Sign in is a part of almost every app and this makes it easier to add buttons quickly.
 
-![Screenshot](https://github.com/botraunak/social_auth_btn_kit/assets/7816559/92967a39-4a0f-48eb-b1e9-a35497014a28)
+![Screenshot](screenshots/demo.png)
 
 ## Supported Provider
 - Facebook
