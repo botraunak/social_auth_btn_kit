@@ -86,6 +86,25 @@ class DemoPage extends StatelessWidget {
                 },
               ),
             ),
+            const SizedBox(height: 16),
+            Center(
+              child: SocialAuthBtn.apple(
+                onPressed: () {
+                  debugPrint("DEBUG: Apple Btn Pressed");
+                },
+                variant: AppleTypeVariants.outlined,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: SocialAuthBtn.apple(
+                onPressed: () {
+                  debugPrint("DEBUG: Apple Btn Pressed");
+                },
+                theme: AppleThemeVariants.black,
+              ),
+            ),
+            const SizedBox(height: 16),
           ],
         ),
       ),

@@ -1,8 +1,6 @@
 enum FacebookTypeVariants {
   normal,
   outlined,
-  dark,
-  darkOutlined,
 }
 
 enum FacebookThemeVariants {
@@ -14,4 +12,14 @@ enum GoogleThemeVariants {
   light,
   dark,
   neutral,
+}
+
+enum AppleTypeVariants {
+  normal,
+  outlined,
+}
+
+enum AppleThemeVariants {
+  black,
+  white,
 }

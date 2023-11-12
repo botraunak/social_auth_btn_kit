@@ -23,13 +23,13 @@ class SocialAuthBtn extends StatelessWidget {
   /// The [onPressed] parameter must not be null.
   /// This is the callback that will be called when the button is pressed.
   ///
-  /// The [width] parameter defaults to 300. This is the width of the button.
-  ///
   /// The [variant] parameter defaults to `FacebookTypeVariants.normal`.
   /// This determines the type of Facebook button to display.
   ///
   /// The [theme] parameter defaults to `FacebookThemeVariants.light`.
   /// This determines the theme of the Facebook button.
+  ///
+  /// The [width] parameter defaults to 300. This is the width of the button.
   ///
   /// The [borderRadius] parameter defaults to 8.
   /// This is the border radius of the button.
@@ -40,9 +40,9 @@ class SocialAuthBtn extends StatelessWidget {
   /// Returns a `SocialAuthBtn` configured for Facebook.
   factory SocialAuthBtn.facebook({
     required VoidCallback onPressed,
-    double width = 300,
     FacebookTypeVariants variant = FacebookTypeVariants.normal,
     FacebookThemeVariants theme = FacebookThemeVariants.light,
+    double width = 300,
     double borderRadius = 8,
   }) {
     final isDark = theme == FacebookThemeVariants.dark;
@@ -132,18 +132,39 @@ class SocialAuthBtn extends StatelessWidget {
 
   factory SocialAuthBtn.apple({
     required VoidCallback onPressed,
+    AppleThemeVariants theme = AppleThemeVariants.white,
+    AppleTypeVariants variant = AppleTypeVariants.normal,
     double width = 300,
     double borderRadius = 8,
     Key? key,
   }) {
+    var borderSide = BorderSide.none;
+
+    var txtColor = appleLblColorLight;
+    var bgColor = Colors.white;
+    Color? iconColor;
+
+    if (theme == AppleThemeVariants.black) {
+      txtColor = Colors.white;
+      bgColor = Colors.black;
+      iconColor = Colors.white;
+    }
+
+    if (variant == AppleTypeVariants.outlined) {
+      borderSide = const BorderSide();
+    }
+
     return SocialAuthBtn(
       text: 'Sign in with Apple',
       icon: 'assets/logos/apple.png',
+      iconColor: iconColor,
       onPressed: onPressed,
       width: width,
       borderRadius: borderRadius,
+      borderSide: borderSide,
       key: key,
-      textColor: appleLblColorLight,
+      textColor: txtColor,
+      backgroundColor: bgColor,
     );
   }
 
