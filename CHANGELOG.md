@@ -1,3 +1,7 @@
+## 0.1.0
+
+* Added Screenshot 
+
 ## 0.0.1
 
 * Added Support for Facebook, Google, Apple
