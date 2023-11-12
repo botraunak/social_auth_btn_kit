@@ -7,60 +7,62 @@ class SocialAuthBtn extends StatelessWidget {
   const SocialAuthBtn({
     required this.text,
     required this.onPressed,
+    required this.icon,
     this.textColor = Colors.black,
     this.backgroundColor = Colors.white,
-    this.icon = 'assets/logos/google.png',
     this.width = 300,
     this.borderRadius = 8,
     super.key,
   });
 
-  const SocialAuthBtn.facebook({
+  factory SocialAuthBtn.facebook({
     required VoidCallback onPressed,
     double width = 300,
     double borderRadius = 8,
-    Key? key,
-  }) : this(
-          text: 'Login in with Facebook',
-          icon: 'assets/logos/facebook.png',
-          onPressed: onPressed,
-          width: width,
-          borderRadius: borderRadius,
-          backgroundColor: facebookBgColorLight,
-          textColor: facebookLblColorLight,
-          key: key,
-        );
+  }) {
+    return SocialAuthBtn(
+      text: 'Login in with Facebook',
+      icon: 'assets/logos/facebook.png',
+      onPressed: onPressed,
+      width: width,
+      borderRadius: borderRadius,
+      backgroundColor: facebookBgColorLight,
+      textColor: facebookLblColorLight,
+    );
+  }
 
-  const SocialAuthBtn.google({
+  factory SocialAuthBtn.google({
     required VoidCallback onPressed,
     double width = 300,
     double borderRadius = 8,
-    Key? key,
-  }) : this(
-          text: 'Sign in with Google',
-          icon: 'assets/logos/google.png',
-          onPressed: onPressed,
-          width: width,
-          borderRadius: borderRadius,
-          backgroundColor: googleBgColorLight,
-          textColor: googleLblColorLight,
-          key: key,
-        );
+  }) {
+    return SocialAuthBtn(
+      text: 'Sign in with Google',
+      icon: 'assets/logos/google.png',
+      onPressed: onPressed,
+      width: width,
+      borderRadius: borderRadius,
+      backgroundColor: googleBgColorLight,
+      textColor: googleLblColorLight,
+    );
+  }
 
-  const SocialAuthBtn.apple({
+  factory SocialAuthBtn.apple({
     required VoidCallback onPressed,
     double width = 300,
     double borderRadius = 8,
     Key? key,
-  }) : this(
-          text: 'Sign in with Apple',
-          icon: 'assets/logos/apple.png',
-          onPressed: onPressed,
-          width: width,
-          borderRadius: borderRadius,
-          key: key,
-          textColor: appleLblColorLight,
-        );
+  }) {
+    return SocialAuthBtn(
+      text: 'Sign in with Apple',
+      icon: 'assets/logos/apple.png',
+      onPressed: onPressed,
+      width: width,
+      borderRadius: borderRadius,
+      key: key,
+      textColor: appleLblColorLight,
+    );
+  }
 
   final String text;
   final String icon;
