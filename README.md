@@ -1,32 +1,55 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
+# Social Auth Buttons Kit
 Flutter UI Components for adding social sign in buttons in your project following the brand guidlines of each social provider.
 Social Sign in is a part of almost every app and this makes it easier to add buttons quickly.
 
-## Features
+## Supported Provider
+- Facebook
+- Google
+- Apple
 
 
 ## Getting started
 
+To get stated add this as a dependency in your project.
+```
+flutter pub add social_auth_btn_kit
+```
 
 ## Usage
 
+### Facebook
+Facebook brand guides allow for a normal and outlined button
+can be passed as the ```variant``` parameter ```FacebookTypeVariants```
+```dart
+enum FacebookTypeVariants {
+  normal,
+  outlined,
+}
+```
+Also the theme variant can be configured using the ```theme``` parameter
+```dart
+enum FacebookThemeVariants {
+  light,
+  dark,
+}
+```
+
+### Google
+Google brand guides have three themed buttons can be passed as the ```theme``` parameter ```GoogleThemeVariants```
+```dart
+enum GoogleThemeVariants {
+  light,
+  dark,
+  neutral,
+}
+```
+### Apple
+Apple button support is also added with outline and dark support according to brand
+
 
 ```dart
-SocialAuthBtn(
-                method: SocialAuthMethod.get(type: ButtonTypes.facebook),
-                borderRadius: 25,
+SocialAuthBtn.facebook(
+                variant: FacebookTypeVariants.outlined,
                 onPressed: () {
                   debugPrint("DEBUG: Facebook Btn Pressed");
                 },
