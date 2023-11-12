@@ -62,6 +62,24 @@ class DemoPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Center(
+              child: SocialAuthBtn.google(
+                onPressed: () {
+                  debugPrint("DEBUG: Google Btn Pressed");
+                },
+                theme: GoogleThemeVariants.dark,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: SocialAuthBtn.google(
+                onPressed: () {
+                  debugPrint("DEBUG: Google Btn Pressed");
+                },
+                theme: GoogleThemeVariants.neutral,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
               child: SocialAuthBtn.apple(
                 onPressed: () {
                   debugPrint("DEBUG: Apple Btn Pressed");

@@ -72,19 +72,61 @@ class SocialAuthBtn extends StatelessWidget {
     );
   }
 
+  /// Creates a new instance of `SocialAuthBtn` for Google.
+  ///
+  /// The [onPressed] parameter must not be null.
+  /// This is the callback that will be called when the button is pressed.
+  ///
+  /// The [theme] parameter defaults to `GoogleThemeVariants.light`.
+  /// This determines the theme of the Google button.
+  ///
+  /// The [width] parameter defaults to 300. This is the width of the button.
+  ///
+  /// The [borderRadius] parameter defaults to 8.
+  /// This is the border radius of the button.
+  ///
+  /// The button's border, background color, text color, and icon color
+  /// are determined based on the [theme] parameter.
+  ///
+  /// Returns a `SocialAuthBtn` configured for Google.
   factory SocialAuthBtn.google({
     required VoidCallback onPressed,
+    GoogleThemeVariants theme = GoogleThemeVariants.light,
     double width = 300,
     double borderRadius = 8,
   }) {
+    var backgroundColor = googleBgColorLight;
+    var textColor = googleLblColorLight;
+    var borderSide = BorderSide.none;
+
+    if (theme == GoogleThemeVariants.light) {
+      borderSide = const BorderSide(
+        color: googleBorderColorLight,
+      );
+    }
+
+    if (theme == GoogleThemeVariants.dark) {
+      borderSide = const BorderSide(
+        color: googleBorderColorDark,
+      );
+      backgroundColor = googleBgColorDark;
+      textColor = googleLblColorDark;
+    }
+
+    if (theme == GoogleThemeVariants.neutral) {
+      backgroundColor = googleBgColorNeutral;
+      textColor = googleLblColorNeutral;
+    }
+
     return SocialAuthBtn(
       text: 'Sign in with Google',
       icon: 'assets/logos/google.png',
       onPressed: onPressed,
       width: width,
       borderRadius: borderRadius,
-      backgroundColor: googleBgColorLight,
-      textColor: googleLblColorLight,
+      borderSide: borderSide,
+      backgroundColor: backgroundColor,
+      textColor: textColor,
     );
   }
 

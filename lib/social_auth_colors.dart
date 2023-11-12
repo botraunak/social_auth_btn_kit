@@ -9,6 +9,9 @@ const googleLblColorLight = Color(0xFF1F1F1F);
 const googleLblColorDark = Color(0xFFE3E3E3);
 const googleLblColorNeutral = Color(0xFF1F1F1F);
 
+const googleBorderColorLight = Color(0xFF747775);
+const googleBorderColorDark = Color(0xFF8E918F);
+
 // Facebook colors
 const facebookBrandColor = Color(0xFF1877F2);
 

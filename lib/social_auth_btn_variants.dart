@@ -9,3 +9,9 @@ enum FacebookThemeVariants {
   light,
   dark,
 }
+
+enum GoogleThemeVariants {
+  light,
+  dark,
+  neutral,
+}
